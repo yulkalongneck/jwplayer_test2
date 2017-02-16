@@ -43,15 +43,17 @@ $(document).ready(function() {
     // jwplayer('SDMPlayer').pause();
     //   $("#durationText").append(jwplayer('SDMPlayer').getState(), jwplayer('SDMPlayer').getDuration())
 
-
+    var duration;
     $("#play").on("click", function(){
       jwplayer("SDMPlayer").play();
+      duration = jwplayer("SDMPlayer").getDuration();
+      $("#durationText").append(duration);
     });
+
     $("#pause").on("click", function(){
         jwplayer("SDMPlayer").pause();
     });
 
-    
 });
 
 
@@ -91,6 +93,12 @@ var video = jwplayer('SDMPlayer');
 
 addChapter.addEventListener("click", function() {
 
+  var duration;
+    jwplayer("SDMPlayer").play();
+    duration = jwplayer("SDMPlayer").getDuration();
+    jwplayer("SDMPlayer").pause();
+    $("#durationText").append(duration);
+
   var name = document.getElementById('chapter-name').value;
     // console.log(name);
   var $Hours = (document.getElementById("hours").value = document.getElementById("chapter-timing-hours").value);
@@ -104,8 +112,8 @@ addChapter.addEventListener("click", function() {
   } else if (name.match(/^[0-9]/)) {
     alert("Name format is invalid! Name can't start with a digit!");
     // !!!!!!!!!!!
-  // } else if (time > duration) {
-  //   alert("This video is not long enough!");
+  } else if (time > duration) {
+    alert("This video is not long enough!");
   //   // time validation
   } else if (time == 0) {
     alert("Timing can't be equal to 0!");
