@@ -94,7 +94,7 @@ var video = jwplayer('SDMPlayer');
 addChapter.addEventListener("click", function() {
 
   var duration;
-    video.load();
+
     duration = video.getDuration();
     video.play();
     video.pause();
@@ -117,7 +117,7 @@ addChapter.addEventListener("click", function() {
     // !!!!!!!!!!!
   } else if (time > duration) {
     alert("This video is not long enough!");
-    video.stop();
+    // video.pause();
   //   // time validation
   } else if (time == 0) {
     alert("Timing can't be equal to 0!");
