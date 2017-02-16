@@ -94,12 +94,12 @@ var video = jwplayer('SDMPlayer');
 addChapter.addEventListener("click", function() {
 
   var duration;
-    jwplayer("SDMPlayer").play();
-    duration = jwplayer("SDMPlayer").getDuration();
-    jwplayer('SDMPlayer').pause();
-    jwplayer("SDMPlayer").play();
-    duration = jwplayer("SDMPlayer").getDuration();
-    jwplayer('SDMPlayer').pause();
+    video.load();
+    duration = video.getDuration();
+    video.play();
+    video.pause();
+    duration = video.getDuration();
+    video.pause();
     $("#durationText").append(duration);
 
   var name = document.getElementById('chapter-name').value;
@@ -117,6 +117,7 @@ addChapter.addEventListener("click", function() {
     // !!!!!!!!!!!
   } else if (time > duration) {
     alert("This video is not long enough!");
+    video.stop();
   //   // time validation
   } else if (time == 0) {
     alert("Timing can't be equal to 0!");
