@@ -1,6 +1,4 @@
 $(document).ready(function() {
-    
-    // jwplayer('SDMPlayer').once(‘play’,function(){alert(jwplayer().getDuration(););});
 
     jwplayer("SDMPlayer").setup({
         mediaid: "sherpa-video",
@@ -21,32 +19,39 @@ $(document).ready(function() {
             trackingobject: "_gaq"
         }
     });
-    
-    
-    
+
     jwplayer("SDMPlayer").onComplete(function () {
       jwplayer("SDMPlayer").play();
     });
 
-    // hop;
-    hours;
-    minutes;
-    seconds;
-
-
     // I can see the value of var duartion appended to div, but I cannot figure out howe to save it a variable;
+    // $("#play").on("click", function(){
+    //   jwplayer("SDMPlayer").play();
+    //   jwplayer("SDMPlayer").onTime(function(){
+    //     var duration = jwplayer("SDMPlayer").getDuration();
+    //     $("#durationText").append(duration);
+    //   });
+    // });
+  
+
+    // autoplay while loading tha page th=en pause it.
+
+    // jwplayer("SDMPlayer").play();
+    //   $("#durationText").append(jwplayer("SDMPlayer").getState(), jwplayer("SDMPlayer").getDuration())
+      
+      
+    // jwplayer('SDMPlayer').pause();
+    //   $("#durationText").append(jwplayer('SDMPlayer').getState(), jwplayer('SDMPlayer').getDuration())
+
+
     $("#play").on("click", function(){
       jwplayer("SDMPlayer").play();
-      jwplayer("SDMPlayer").onTime(function(){
-        var duration = jwplayer("SDMPlayer").getDuration();
-        $("#durationText").append(duration);
-      });
     });
-
     $("#pause").on("click", function(){
         jwplayer("SDMPlayer").pause();
     });
 
+    
 });
 
 
@@ -106,7 +111,7 @@ addChapter.addEventListener("click", function() {
     alert("Timing can't be equal to 0!");
   } else {
     var nameid = name.replace(/\s+/g, "-");
-    $('#new-chapter').append('<button id=' + nameid + '>' + name + '</button>' + time + 'sec');
+    $('#new-chapter').append('<button id=' + nameid + '>' + name + '</button>' + time + 'sec' + '<br>');
     $('#' + nameid).click(function() {
       video.seek(time);
       event.preventDefault();
