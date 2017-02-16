@@ -1,5 +1,7 @@
 $(document).ready(function() {
-    // Instantiate jwplayer
+    
+    // jwplayer('SDMPlayer').once(‘play’,function(){alert(jwplayer().getDuration(););});
+
     jwplayer("SDMPlayer").setup({
         mediaid: "sherpa-video",
         file: "http://sdmcdn-media-lb01-1526081469.us-west-2.elb.amazonaws.com:1935/mediacache/_definst_/smil:allusstandard/sdm-marketing/2016/testimonials/Mark-Seward-testimonial_short_v2.smil/playlist.m3u8",
@@ -23,7 +25,7 @@ $(document).ready(function() {
     
     
     jwplayer("SDMPlayer").onComplete(function () {
-        jwplayer("SDMPlayer").play();
+      jwplayer("SDMPlayer").play();
     });
 
     // hop;
@@ -31,23 +33,23 @@ $(document).ready(function() {
     minutes;
     seconds;
 
+
+    // I can see the value of var duartion appended to div, but I cannot figure out howe to save it a variable;
     $("#play").on("click", function(){
-        jwplayer("SDMPlayer").play();
+      jwplayer("SDMPlayer").play();
+      jwplayer("SDMPlayer").onTime(function(){
+        var duration = jwplayer("SDMPlayer").getDuration();
+        $("#durationText").append(duration);
+      });
     });
 
     $("#pause").on("click", function(){
         jwplayer("SDMPlayer").pause();
     });
+
 });
 
-var position = jwplayer('SDMPlayer').getPosition();
-    var duration = jwplayer('SDMPlayer').getDuration();
 
-$("durationText").append(position + '...' + duration);
-
-// var hop = $("#add-chapter").on("click", function(){
-//         jwplayer("SDMPlayer").seek(20);
-//     });
 
 
 // hours
@@ -81,9 +83,11 @@ var seconds = $(function() {
 
 var addChapter = document.getElementById('add-chapter');
 var video = jwplayer('SDMPlayer');
+
 addChapter.addEventListener("click", function() {
+
   var name = document.getElementById('chapter-name').value;
-  console.log(name);
+    // console.log(name);
   var $Hours = (document.getElementById("hours").value = document.getElementById("chapter-timing-hours").value);
   var $Minutes = (document.getElementById("minutes").value = document.getElementById("chapter-timing-minutes").value);
   var $Seconds = (document.getElementById("seconds").value = document.getElementById("chapter-timing-seconds").value);
@@ -95,9 +99,9 @@ addChapter.addEventListener("click", function() {
   } else if (name.match(/^[0-9]/)) {
     alert("Name format is invalid! Name can't start with a digit!");
     // !!!!!!!!!!!
-  // } else if (time > video.getDuration()) {
+  // } else if (time > duration) {
   //   alert("This video is not long enough!");
-    // time validation
+  //   // time validation
   } else if (time == 0) {
     alert("Timing can't be equal to 0!");
   } else {
