@@ -33,7 +33,6 @@ $(document).ready(function() {
     //   });
     // });
   
-
     // autoplay while loading tha page th=en pause it.
 
     // jwplayer("SDMPlayer").play();
@@ -43,20 +42,18 @@ $(document).ready(function() {
     // jwplayer('SDMPlayer').pause();
     //   $("#durationText").append(jwplayer('SDMPlayer').getState(), jwplayer('SDMPlayer').getDuration())
 
-    var duration;
-    $("#play").on("click", function(){
-      jwplayer("SDMPlayer").play();
-      duration = jwplayer("SDMPlayer").getDuration();
-      $("#durationText").append(duration);
-    });
+    // var duration;
+    // $("#play").on("click", function(){
+    //   jwplayer("SDMPlayer").play();
+    //   duration = jwplayer("SDMPlayer").getDuration();
+    //   $("#durationText").append(duration);
+    // });
 
-    $("#pause").on("click", function(){
-        jwplayer("SDMPlayer").pause();
-    });
+    // $("#pause").on("click", function(){
+    //     jwplayer("SDMPlayer").pause();
+    // });
 
 });
-
-
 
 
 // hours
@@ -129,6 +126,7 @@ addChapter.addEventListener("click", function() {
       event.preventDefault();
     });
   };
+
 });
 
 
