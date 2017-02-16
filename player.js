@@ -96,7 +96,10 @@ addChapter.addEventListener("click", function() {
   var duration;
     jwplayer("SDMPlayer").play();
     duration = jwplayer("SDMPlayer").getDuration();
-    jwplayer("SDMPlayer").pause();
+    jwplayer('SDMPlayer').pause();
+    jwplayer("SDMPlayer").play();
+    duration = jwplayer("SDMPlayer").getDuration();
+    jwplayer('SDMPlayer').pause();
     $("#durationText").append(duration);
 
   var name = document.getElementById('chapter-name').value;
