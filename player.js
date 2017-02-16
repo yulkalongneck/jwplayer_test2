@@ -21,6 +21,7 @@ $(document).ready(function() {
     });
     
     
+    
     jwplayer("SDMPlayer").onComplete(function () {
         jwplayer("SDMPlayer").play();
     });
@@ -29,16 +30,6 @@ $(document).ready(function() {
     hours;
     minutes;
     seconds;
-
-
-
-
-
-
-
-
-
-
 
     $("#play").on("click", function(){
         jwplayer("SDMPlayer").play();
@@ -49,6 +40,10 @@ $(document).ready(function() {
     });
 });
 
+var position = jwplayer('SDMPlayer').getPosition();
+    var duration = jwplayer('SDMPlayer').getDuration();
+
+$("durationText").append(position + '...' + duration);
 
 // var hop = $("#add-chapter").on("click", function(){
 //         jwplayer("SDMPlayer").seek(20);
@@ -58,30 +53,34 @@ $(document).ready(function() {
 // hours
 var hours = $(function() {
   var $timeHours = $("#chapter-timing-hours");
-  for (var i = 00; i <= 3; i++) {
-    $timeHours.append($('<option></option>').val(i).html(i));
+  for (var i = 1; i <= 3; i++) {
+    $timeHours.append($('<option value='+ i +'> 0'+i+'</option>'));
   }
 });
 //minutes
 var minutes = $(function() {
   var $timeMinutes = $("#chapter-timing-minutes");
-  for (var i = 0; i <= 59; i++) {
-    $timeMinutes.append($('<option></option>').val(i).html(i))
+  for (var i = 1; i <= 9; i++) {
+    $timeMinutes.append($('<option value='+ i +'> 0'+i+'</option>'));
+  }
+  for (var i = 10; i <= 59; i++) {
+    $timeMinutes.append($('<option value='+ i +'>'+i+'</option>'));
   }
 });
 // seconds
 var seconds = $(function() {
   var $timeSeconds = $("#chapter-timing-seconds");
-  for (var i = 0; i <= 59; i++) {
-    $timeSeconds.append($('<option></option>').val(i).html(i))
+  for (var i = 1; i <= 9; i++) {
+    $timeSeconds.append($('<option value='+ i +'> 0'+i+'</option>'));
+  }
+  for (var i = 10; i <= 59; i++) {
+    $timeSeconds.append($('<option value='+ i +'>'+i+'</option>'));
   }
 });
 
 
-// add new chapter
-var video = jwplayer("SDMPlayer");
 var addChapter = document.getElementById('add-chapter');
-
+var video = jwplayer('SDMPlayer');
 addChapter.addEventListener("click", function() {
   var name = document.getElementById('chapter-name').value;
   console.log(name);

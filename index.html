@@ -17,12 +17,12 @@
  	</p>
 	
 	<div id="add-container">
-	  <input id="chapter-name" name="chapter-name" placeholder="	chapter name"> HH
-	  <select name="chapter-timing-hours" id="chapter-timing-hours"	></select>
-	  <input type="hidden" id="hours"> MM
-	  <select name="chapter-timing-minutes" id="chapter-timing-minutes"></select>
-	  <input type="hidden" id="minutes"> SS
-	  <select name="chapter-timing-seconds" id="chapter-timing-seconds"></select>
+	  <input id="chapter-name" name="chapter-name" placeholder="chapter name">
+	  <select id="chapter-timing-hours"><option value="0">HH</option></select>
+	  <input type="hidden" id="hours">
+	  <select name="chapter-timing-minutes" id="chapter-timing-minutes"><option value="0">MM</option></select>
+	  <input type="hidden" id="minutes">
+	  <select name="chapter-timing-seconds" id="chapter-timing-seconds"><option value="0">SS</option></select>
 	  <input type="hidden" id="seconds">
 
 	  <button id="add-chapter" type="submit" value="Submit">Add new chapter</button>
@@ -43,7 +43,7 @@
 	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
 	<script id="jwplayer7" src="https://content.jwplatform.com/libraries/40ePXEh3.js"></script>
 	<script type="text/javascript" src="player.js"></script>
-	<script type="text/javascript" src="chapters.js"></script>
+	<!-- <script type="text/javascript" src="chapters.js"></script> -->
 
 </body>
 </html>
