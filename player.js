@@ -99,8 +99,8 @@ addChapter.addEventListener("click", function() {
   // } else if (time > video.getDuration()) {
   //   alert("This video is not long enough!");
     // time validation
-  } else if ((parseInt($Seconds)) == 0) {
-    alert("Seconds can't be equal to 0!");
+  } else if (time == 0) {
+    alert("Timing can't be equal to 0!");
   } else {
     var nameid = name.replace(/\s+/g, "-");
     $('#new-chapter').append('<button id=' + nameid + '>' + name + '</button>' + time + 'sec');
